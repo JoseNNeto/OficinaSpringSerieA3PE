@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ public class PartidaController {
     public PartidaController(PartidaService partidaService) {
         this.partidaService = partidaService;
     }
+    
 
     @GetMapping("/listar")
     public List<Partida> listarPartidas(){
@@ -26,7 +28,7 @@ public class PartidaController {
     }
 
     @PostMapping("/salvar")
-    public Partida salvarPartida(Partida partida){
+    public Partida salvarPartida(@RequestBody Partida partida){
         return partidaService.salvarPartida(partida);
     }
 

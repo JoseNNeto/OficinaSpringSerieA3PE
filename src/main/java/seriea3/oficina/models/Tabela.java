@@ -6,6 +6,7 @@ import lombok.Data;
 public class Tabela {
     private Time time;
     private int pontos;
+    private int jogos;
     private int vitorias;
     private int empates;
     private int derrotas;
@@ -18,6 +19,7 @@ public class Tabela {
     }
 
     public void atualizar(int golsPro, int golsContra) {
+        this.jogos++;
         this.golsPro += golsPro;
         this.golsContra += golsContra;
         this.saldoGols = this.golsPro - this.golsContra;
@@ -30,5 +32,9 @@ public class Tabela {
         } else {
             this.derrotas++;
         }
+    }
+
+    public double getAproveitamento(){
+        return (double) pontos / (jogos);
     }
 }
