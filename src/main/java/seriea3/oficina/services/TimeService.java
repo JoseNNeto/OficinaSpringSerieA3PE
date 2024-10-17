@@ -31,13 +31,15 @@ public class TimeService {
         return timeRepository.save(time);
     }
 
-    public void atualizarTime(Long id, Time time){
+    public Time atualizarTime(Long id, Time time){
         Time timeAtual = buscarTime(id);
 
         timeAtual.setNome(time.getNome());
         timeAtual.setCidade(time.getCidade());
 
         timeRepository.save(timeAtual);
+
+        return timeAtual;
     }
 
     public void deletarTime(Long id){

@@ -37,4 +37,23 @@ public class Tabela {
     public double getAproveitamento(){
         return (double) pontos / (jogos);
     }
+
+    public Tabela orderByPontos(Tabela t) {
+        if (this.pontos > t.pontos) {
+            return this;
+        } else if (this.pontos == t.pontos) {
+            if (this.vitorias > t.vitorias) {
+                return this;
+            } else if (this.vitorias == t.vitorias) {
+                if (this.saldoGols > t.saldoGols) {
+                    return this;
+                } else if (this.saldoGols == t.saldoGols) {
+                    if (this.golsPro > t.golsPro) {
+                        return this;
+                    }
+                }
+            }
+        }
+        return t;
+    }
 }
